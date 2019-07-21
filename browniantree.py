@@ -1,5 +1,4 @@
 # <Tyler Rouze rouze012>
-
 # I understand that this is a graded, individual examination that may not be
 # discussed with anyone. I also understand that obtaining solution or
 # partial solution from outside sources, or discussing any aspect of the exam
