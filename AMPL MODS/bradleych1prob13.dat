@@ -1,0 +1,22 @@
+set DIST := elk alb cam pet;
+set DEALER := a b c d e f;
+
+param supply :=
+elk 30
+alb 75
+cam 60
+pet 35;
+
+param demand :=
+a 25
+b 40
+c 15
+d 25
+e 50
+f 45;
+
+param cost: a b c d e f :=
+elk 75 65 175 90 110 150
+alb 90 30 45 50 105 130
+cam 40 55 35 80 70 75
+pet 95 150 100 115 55 55;

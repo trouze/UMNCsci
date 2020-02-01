@@ -1,0 +1,168 @@
+set stations := Coffman Mayo OakSt McNam 23rd6th 29thComo ElliotH 15th4th Williamson 4thRamp Mariucci StadLRT CookeH CEGE ART WilleyH CSOM SocSci;
+
+param DEMAND_Docks := 
+Coffman 13
+Mayo 3
+OakSt 8
+McNam 12
+23rd6th 3
+29thComo 2
+ElliotH 2
+15th4th 10
+Williamson 8
+4thRamp 5
+Mariucci 2
+StadLRT 4
+CookeH 3
+CEGE 3
+ART 15
+WilleyH 12
+CSOM 12
+SocSci 5
+;
+
+param avail_docks := 
+Coffman 23
+Mayo 10
+OakSt 10
+McNam 15
+23rd6th 13
+29thComo 13
+ElliotH 10
+15th4th 15
+Williamson 12
+4thRamp 4
+Mariucci 8
+StadLRT 7
+CookeH 4
+CEGE 7
+ART 10
+WilleyH 11
+CSOM 9
+SocSci 7
+;
+
+param DEMAND_Bikes :=
+Coffman 14
+Mayo 4
+OakSt 7
+McNam 11
+23rd6th 4
+29thComo 2
+ElliotH 3
+15th4th 11
+Williamson 8
+4thRamp 5
+Mariucci 2
+StadLRT 5
+CookeH 3
+CEGE 3
+ART 16
+WilleyH 14
+CSOM 11
+SocSci 5
+;
+
+param avail_bikes :=
+Coffman 12
+Mayo 15
+OakSt 13
+McNam 4
+23rd6th 10
+29thComo 6
+ElliotH 5
+15th4th 8
+Williamson 13
+4thRamp 11
+Mariucci 17
+StadLRT 16
+CookeH 11
+CEGE 16
+ART 9
+WilleyH 12
+CSOM 10
+SocSci 20;
+
+param Fc :=
+Coffman Mayo .22 Coffman OakSt .6 Coffman McNam .43 Coffman 23rd6th .94 Coffman 29thComo 2 Coffman ElliotH .4 Coffman 15th4th .62 Coffman Williamson .38 Coffman 4thRamp .58 Coffman Mariucci .69 Coffman StadLRT .79 Coffman CookeH .38 Coffman CEGE .32 Coffman ART .17 Coffman WilleyH .56 Coffman CSOM .75 Coffman SocSci .56
+Mayo Coffman .22 Mayo OakSt .38 Mayo McNam .26 Mayo 23rd6th .78 Mayo 29thComo 1.9 Mayo ElliotH .59 Mayo 15th4th .71 Mayo Williamson .5 Mayo 4thRamp .61 Mayo Mariucci .6 Mayo StadLRT .59 Mayo CookeH .33 Mayo CEGE .35 Mayo ART .39 Mayo WilleyH .77 Mayo CSOM .91 Mayo SocSci .75
+OakSt Coffman .6 OakSt Mayo .38 OakSt McNam .32 OakSt 23rd6th .61 OakSt 29thComo 1.78 OakSt ElliotH .95 OakSt 15th4th .98 OakSt Williamson .82 OakSt 4thRamp .82 OakSt Mariucci .61 OakSt StadLRT .34 OakSt CookeH .52 OakSt CEGE .62 OakSt ART .77 OakSt WilleyH 1.14 OakSt CSOM 1.24 OakSt SocSci 1.1
+McNam Coffman .43 McNam Mayo .26 McNam OakSt .32 McNam 23rd6th .52 McNam 29thComo 1.65 McNam ElliotH .68 McNam 15th4th .66 McNam Williamson .52 McNam 4thRamp .51 McNam Mariucci .36 McNam StadLRT .36 McNam CookeH .21 McNam CEGE .31 McNam ART .59 McNam WilleyH .99 McNam CSOM 1.17 McNam SocSci .99
+23rd6th Coffman .94 23rd6th Mayo .78 23rd6th OakSt .61 23rd6th McNam .52 23rd6th 29thComo 1.18 23rd6th ElliotH 1.09 23rd6th 15th4th .9 23rd6th Williamson .89 23rd6th 4thRamp .71 23rd6th Mariucci .34 23rd6th StadLRT .27 23rd6th CookeH .59 23rd6th CEGE .71 23rd6th ART 1.09 23rd6th WilleyH 1.5 23rd6th CSOM 1.69 23rd6th SocSci 1.5
+29thComo Coffman 2 29thComo Mayo 1.9 29thComo OakSt 1.78 29thComo McNam 1.65 29thComo 23rd6th 1.18 29thComo ElliotH 1.96 29thComo 15th4th 1.62 29thComo Williamson 1.75 29thComo 4thRamp 1.5 29thComo Mariucci 1.31 29thComo StadLRT 1.44 29thComo CookeH 1.62 29thComo CEGE 1.69 29thComo ART 2.11 29thComo WilleyH 2.48 29thComo CSOM 2.72 29thComo SocSci 2.52
+ElliotH Coffman .4 ElliotH Mayo .59 ElliotH OakSt .95 ElliotH McNam .68 ElliotH 23rd6th 1.09 ElliotH 29thComo 1.96 ElliotH 15th4th .36 ElliotH Williamson .21 ElliotH 4thRamp .46 ElliotH Mariucci .76 ElliotH StadLRT 1.03 ElliotH CookeH .51 ElliotH CEGE .39 ElliotH ART .33 ElliotH WilleyH .54 ElliotH CSOM .83 ElliotH SocSci .61
+15th4th Coffman .62 15th4th Mayo .625 15th4th OakSt .625 15th4th McNam .625 15th4th 23rd6th .625 15th4th 29thComo .625 15th4th ElliotH .625 15th4th Williamson .625 15th4th 4thRamp .625 15th4th Mariucci .625 15th4th StadLRT .625 15th4th CookeH .625 15th4th CEGE .625 15th4th ART .625 15th4th WilleyH .625 15th4th CSOM .625 15th4th SocSci .625
+Williamson Coffman .38 Williamson Mayo .5 Williamson OakSt .82 Williamson McNam .52 Williamson 23rd6th .89 Williamson 29thComo 1.75 Williamson ElliotH .21 Williamson 15th4th .23 Williamson 4thRamp .26 Williamson Mariucci .56 Williamson StadLRT .84 Williamson CookeH .33 Williamson CEGE .21 Williamson ART .4 Williamson WilleyH .71 Williamson CSOM .99 Williamson SocSci .77
+4thRamp Coffman .58 4thRamp Mayo .61 4thRamp OakSt .82 4thRamp McNam .51 4thRamp 23rd6th .71 4thRamp 29thComo 1.5 4thRamp ElliotH .46 4thRamp 15th4th .19 4thRamp Williamson .26 4thRamp Mariucci .37 4thRamp StadLRT .74 4thRamp CookeH .38 4thRamp CEGE .29 4thRamp ART .64 4thRamp WilleyH .97 4thRamp CSOM 1.24 4thRamp SocSci 1.03
+Mariucci Coffman .69 Mariucci Mayo .6 Mariucci OakSt .61 Mariucci McNam .36 Mariucci 23rd6th .34 Mariucci 29thComo 1.31 Mariucci ElliotH .76 Mariucci 15th4th .56 Mariucci Williamson .56 Mariucci 4thRamp .37 Mariucci StadLRT .41 Mariucci CookeH .31 Mariucci CEGE .41 Mariucci ART .82 Mariucci WilleyH 1.21 Mariucci CSOM 1.44 Mariucci SocSci 1.24
+StadLRT Coffman .79 StadLRT Mayo .59 StadLRT OakSt .34 StadLRT McNam .36 StadLRT 23rd6th .27 StadLRT 29thComo 1.44 StadLRT ElliotH 1.03 StadLRT 15th4th .93 StadLRT Williamson .84 StadLRT 4thRamp .74 StadLRT Mariucci .41 StadLRT CookeH .52 StadLRT CEGE .64 StadLRT ART .95 StadLRT WilleyH 1.35 StadLRT CSOM 1.51 StadLRT SocSci 1.34
+CookeH Coffman .38 CookeH Mayo .33 CookeH OakSt .52 CookeH McNam .21 CookeH 23rd6th .59 CookeH 29thComo 1.62 CookeH ElliotH .51 CookeH 15th4th .46 CookeH Williamson .33 CookeH 4thRamp .38 CookeH Mariucci .31 CookeH StadLRT .52 CookeH CEGE .13 CookeH ART .52 CookeH WilleyH .91 CookeH CSOM 1.12 CookeH SocSci .93
+CEGE Coffman .32 CEGE Mayo .35 CEGE OakSt .62 CEGE McNam .31 CEGE 23rd6th .71 CEGE 29thComo 1.69 CEGE ElliotH .39 CEGE 15th4th .37 CEGE Williamson .21 CEGE 4thRamp .29 CEGE Mariucci .41 CEGE StadLRT .64 CEGE CookeH .13 CEGE ART .42 CEGE WilleyH .8 CEGE CSOM 1.04 CEGE SocSci .83
+ART Coffman .17 ART Mayo .39 ART OakSt .77 ART McNam .59 ART 23rd6th 1.09 ART 29thComo 2.11 ART ElliotH 0.33 ART 15th4th .63 ART Williamson .4 ART 4thRamp .64 ART Mariucci .82 ART StadLRT .95 ART CookeH .52 ART CEGE .42 ART WilleyH .4 ART CSOM .61 ART SocSci .41
+WilleyH Coffman .56 WilleyH Mayo .77 WilleyH OakSt 1.14 WilleyH McNam .99 WilleyH 23rd6th 1.5 WilleyH 29thComo 2.48 WilleyH ElliotH .54 WilleyH 15th4th .89 WilleyH Williamson .71 WilleyH 4thRamp .97 WilleyH Mariucci 1.21 WilleyH StadLRT 1.35 WilleyH CookeH .91 WilleyH CEGE .8 WilleyH ART .4 WilleyH CSOM .31 WilleyH SocSci .12
+CSOM Coffman .75 CSOM Mayo .91 CSOM OakSt 1.24 CSOM McNam 1.17 CSOM 23rd6th 1.69 CSOM 29thComo 2.72 CSOM ElliotH .83 CSOM 15th4th 1.18 CSOM Williamson .99 CSOM 4thRamp 1.24 CSOM Mariucci 1.44 CSOM StadLRT 1.51 CSOM CookeH 1.12 CSOM CEGE 1.04 CSOM ART .61 CSOM WilleyH .31 CSOM SocSci .22
+SocSci Coffman .56 SocSci Mayo .75 SocSci OakSt 1.1 SocSci McNam .99 SocSci 23rd6th 1.5 SocSci 29thComo 2.52 SocSci ElliotH .61 SocSci 15th4th .97 SocSci Williamson .77 SocSci 4thRamp 1.03 SocSci Mariucci 1.24 SocSci StadLRT 1.34 SocSci CookeH .93 SocSci CEGE .83 SocSci ART .41 SocSci WilleyH .12 SocSci CSOM .22
+;
+
+param c :=
+Coffman Mayo .625 Coffman OakSt .625 Coffman McNam .625 Coffman 23rd6th .625 Coffman 29thComo .625 Coffman ElliotH .625 Coffman 15th4th .625 Coffman Williamson .625 Coffman 4thRamp .625 Coffman Mariucci .625 Coffman StadLRT .625 Coffman CookeH .625 Coffman CEGE .625 Coffman ART .625 Coffman WilleyH .625 Coffman CSOM .625 Coffman SocSci .625
+Mayo Coffman .625 Mayo OakSt .625 Mayo McNam .625 Mayo 23rd6th .625 Mayo 29thComo .625 Mayo ElliotH .625 Mayo 15th4th .625 Mayo Williamson .625 Mayo 4thRamp .625 Mayo Mariucci .625 Mayo StadLRT .625 Mayo CookeH .625 Mayo CEGE .625 Mayo ART .625 Mayo WilleyH .625 Mayo CSOM .625 Mayo SocSci .625
+OakSt Coffman .625 OakSt Mayo .625 OakSt McNam .625 OakSt 23rd6th .625 OakSt 29thComo .625 OakSt ElliotH .625 OakSt 15th4th .625 OakSt Williamson .625 OakSt 4thRamp .625 OakSt Mariucci .625 OakSt StadLRT .625 OakSt CookeH .625 OakSt CEGE .625 OakSt ART .625 OakSt WilleyH .625 OakSt CSOM .625 OakSt SocSci .625
+McNam Coffman .625 McNam Mayo .625 McNam OakSt .625 McNam 23rd6th .625 McNam 29thComo .625 McNam ElliotH .625 McNam 15th4th .625 McNam Williamson .625 McNam 4thRamp .625 McNam Mariucci .625 McNam StadLRT .625 McNam CookeH .625 McNam CEGE .625 McNam ART .625 McNam WilleyH .625 McNam CSOM .625 McNam SocSci .625
+23rd6th Coffman .625 23rd6th Mayo .625 23rd6th OakSt .625 23rd6th McNam .625 23rd6th 29thComo .625 23rd6th ElliotH .625 23rd6th 15th4th .625 23rd6th Williamson .625 23rd6th 4thRamp .625 23rd6th Mariucci .625 23rd6th StadLRT .625 23rd6th CookeH .625 23rd6th CEGE .625 23rd6th ART .625 23rd6th WilleyH .625 23rd6th CSOM .625 23rd6th SocSci .625
+29thComo Coffman .625 29thComo Mayo .625 29thComo OakSt .625 29thComo McNam .625 29thComo 23rd6th .625 29thComo ElliotH .625 29thComo 15th4th .625 29thComo Williamson .625 29thComo 4thRamp .625 29thComo Mariucci .625 29thComo StadLRT .625 29thComo CookeH .625 29thComo CEGE .625 29thComo ART .625 29thComo WilleyH .625 29thComo CSOM .625 29thComo SocSci .625
+ElliotH Coffman .625 ElliotH Mayo .625 ElliotH OakSt .625 ElliotH McNam .625 ElliotH 23rd6th .625 ElliotH 29thComo .625 ElliotH 15th4th .625 ElliotH Williamson .625 ElliotH 4thRamp .625 ElliotH Mariucci .625 ElliotH StadLRT .625 ElliotH CookeH .625 ElliotH CEGE .625 ElliotH ART .625 ElliotH WilleyH .625 ElliotH CSOM .625 ElliotH SocSci .625
+15th4th Coffman .625 15th4th Mayo .625 15th4th OakSt .625 15th4th McNam .625 15th4th 23rd6th .625 15th4th 29thComo .625 15th4th ElliotH .625 15th4th Williamson .625 15th4th 4thRamp .625 15th4th Mariucci .625 15th4th StadLRT .625 15th4th CookeH .625 15th4th CEGE .625 15th4th ART .625 15th4th WilleyH .625 15th4th CSOM .625 15th4th SocSci .625
+Williamson Coffman .625 Williamson Mayo .625 Williamson OakSt .625 Williamson McNam .625 Williamson 23rd6th .625 Williamson 29thComo .625 Williamson ElliotH .625 Williamson 15th4th .625 Williamson 4thRamp .625 Williamson Mariucci .625 Williamson StadLRT .625 Williamson CookeH .625 Williamson CEGE .625 Williamson ART .625 Williamson WilleyH .625 Williamson CSOM .625 Williamson SocSci .625
+4thRamp Coffman .625 4thRamp Mayo .625 4thRamp OakSt .625 4thRamp McNam .625 4thRamp 23rd6th .625 4thRamp 29thComo .625 4thRamp ElliotH .625 4thRamp 15th4th .625 4thRamp Williamson .625 4thRamp Mariucci .625 4thRamp StadLRT .625 4thRamp CookeH .625 4thRamp CEGE .625 4thRamp ART .625 4thRamp WilleyH .625 4thRamp CSOM .625 4thRamp SocSci .625
+Mariucci Coffman .625 Mariucci Mayo .625 Mariucci OakSt .625 Mariucci McNam .625 Mariucci 23rd6th .625 Mariucci 29thComo .625 Mariucci ElliotH .625 Mariucci 15th4th .625 Mariucci Williamson .625 Mariucci 4thRamp .625 Mariucci StadLRT .625 Mariucci CookeH .625 Mariucci CEGE .625 Mariucci ART .625 Mariucci WilleyH .625 Mariucci CSOM .625 Mariucci SocSci .625
+StadLRT Coffman .625 StadLRT Mayo .625 StadLRT OakSt .625 StadLRT McNam .625 StadLRT 23rd6th .625 StadLRT 29thComo .625 StadLRT ElliotH .625 StadLRT 15th4th .625 StadLRT Williamson .625 StadLRT 4thRamp .625 StadLRT Mariucci .625 StadLRT CookeH .625 StadLRT CEGE .625 StadLRT ART .625 StadLRT WilleyH .625 StadLRT CSOM .625 StadLRT SocSci .625
+CookeH Coffman .625 CookeH Mayo .625 CookeH OakSt .625 CookeH McNam .625 CookeH 23rd6th .625 CookeH 29thComo .625 CookeH ElliotH .625 CookeH 15th4th .625 CookeH Williamson .625 CookeH 4thRamp .625 CookeH Mariucci .625 CookeH StadLRT .625 CookeH CEGE .625 CookeH ART .625 CookeH WilleyH .625 CookeH CSOM .625 CookeH SocSci .625
+CEGE Coffman .625 CEGE Mayo .625 CEGE OakSt .625 CEGE McNam .625 CEGE 23rd6th .625 CEGE 29thComo .625 CEGE ElliotH .625 CEGE 15th4th .625 CEGE Williamson .625 CEGE 4thRamp .625 CEGE Mariucci .625 CEGE StadLRT .625 CEGE CookeH .625 CEGE ART .625 CEGE WilleyH .625 CEGE CSOM .625 CEGE SocSci .625
+ART Coffman .625 ART Mayo .625 ART OakSt .625 ART McNam .625 ART 23rd6th .625 ART 29thComo .625 ART ElliotH .625 ART 15th4th .625 ART Williamson .625 ART 4thRamp .625 ART Mariucci .625 ART StadLRT .625 ART CookeH .625 ART CEGE .625 ART WilleyH .625 ART CSOM .625 ART SocSci .625
+WilleyH Coffman .625 WilleyH Mayo .625 WilleyH OakSt .625 WilleyH McNam .625 WilleyH 23rd6th .625 WilleyH 29thComo .625 WilleyH ElliotH .625 WilleyH 15th4th .625 WilleyH Williamson .625 WilleyH 4thRamp .625 WilleyH Mariucci .625 WilleyH StadLRT .625 WilleyH CookeH .625 WilleyH CEGE .625 WilleyH ART .625 WilleyH CSOM .625 WilleyH SocSci .625
+CSOM Coffman .625 CSOM Mayo .625 CSOM OakSt .625 CSOM McNam .625 CSOM 23rd6th .625 CSOM 29thComo .625 CSOM ElliotH .625 CSOM 15th4th .625 CSOM Williamson .625 CSOM 4thRamp .625 CSOM Mariucci .625 CSOM StadLRT .625 CSOM CookeH .625 CSOM CEGE .625 CSOM ART .625 CSOM WilleyH .625 CSOM SocSci .625
+SocSci Coffman .625 SocSci Mayo .625 SocSci OakSt .625 SocSci McNam .625 SocSci 23rd6th .625 SocSci 29thComo .625 SocSci ElliotH .625 SocSci 15th4th .625 SocSci Williamson .625 SocSci 4thRamp .625 SocSci Mariucci .625 SocSci StadLRT .625 SocSci CookeH .625 SocSci CEGE .625 SocSci ART .625 SocSci WilleyH .625 SocSci CSOM .625
+;
+
+param P :=
+Coffman 5
+Mayo  5
+OakSt 5
+McNam 5
+23rd6th  5
+29thComo  5
+ElliotH  5
+15th4th 5
+Williamson 5
+4thRamp 5
+Mariucci 5
+StadLRT 5
+CookeH 5
+CEGE 5
+ART 5
+WilleyH 5
+CSOM 5
+SocSci 5
+;
+
+param D :=
+Coffman 4
+Mayo 4
+OakSt 4
+McNam 4
+23rd6th 4
+29thComo 4
+ElliotH 4
+15th4th 4
+Williamson 4
+4thRamp 4
+Mariucci 4
+StadLRT 4
+CookeH  4
+CEGE 4
+ART 4
+WilleyH 4
+CSOM 4
+SocSci 4
+;

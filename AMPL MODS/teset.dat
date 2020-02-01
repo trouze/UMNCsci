@@ -1,0 +1,41 @@
+set Site;
+set Customer;
+
+param c {Site,Customer};  # per-unit shipping cost
+param f {Site};           # fixed cost
+param supply {Site};
+param demand {Customer};
+param M := 2000;          # a large number
+
+var x {Site,Customer} >= 0;
+var y {Site} binary;
+
+minimize totalcost: 
+(sum {i in Site, j in Customer} c[i,j]*x[i,j])
++ sum {i in Site} f[i]*y[i];
+# per-unit shipping costs plus fixed costs
+                    
+s.t. csupply {i in Site}:
+sum {j in Customer} x[i,j] <= supply[i];
+# can't ship more than supply available at each site
+
+s.t. cdemand {j in Customer}:
+sum {i in Site} x[i,j] = demand[j];
+# satisfy demand at each customer
+
+s.t. fixedcharge {i in Site}:
+sum {j in Customer} x[i,j] <= M*y[i];
+# incur fixed charge only if we open the site
+
+data;
+set Site := 1 2 3;
+set Customer := 1 2 3;
+
+param c: 1 2 3 :=
+1 10 15 12
+2 17 14 20
+3 15 10 11;
+
+param f := 1 12e3 2 11e3 3 12e3;
+param supply := 1 1800 2 1400 3 1300;
+param demand := 1 1200 2 800 3 800;
