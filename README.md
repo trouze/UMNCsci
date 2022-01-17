@@ -1,2 +1,2 @@
 # UMNStuffs
-A collection of university work across the Industrial and Systems Engineering program at the University of Minnesota.
+A collection of university work across the Industrial and Systems Engineering program at the University of Minnesota. A warning- this is not well organized. Files are across Python projects from an intro to CS course, to using R for statistical and stochastic modeling, as well as a website built for a club as part of a Project Management course. Linear programming files are written in AMPL and Julia.
